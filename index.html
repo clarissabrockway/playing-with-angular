@@ -3,18 +3,21 @@
 <head>
 	<title>Order Cupcakes</title>
   	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.6/angular.min.js"></script>
-  
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body ng-app="orderForm">
 	<div ng-controller="customerOrder">
 	<form novalidate class="simple-form">
-		What's your name? <input type="text" ng-model="user.name" /><br />
+		What is your name? <input type="text" ng-model="user.name" ng-model-options="{ debounce: 500 }" />
 		<h2>Hi, {{user.name}}!</h2>
-		<p>What cupcakes would you like today? Pick out which flavors you want and type the desired quantity in the box.</p>
-		Vanilla:   <input type="text" ng-model="flavor.vanilla" /><br />
-		Chocolate:   <input type="text" ng-model="flavor.chocolate" /><br />
-		Strawberry:   <input type="text" ng-model="flavor.strawberry" /><br />
-		<input type="submit" ng-click="update(user)" value="Save" />
+		<div class="flavors">
+			<p>Which cupcakes would you like today? Pick out which flavors you want and type the desired quantity in the box.</p>
+			Vanilla:   <input type="text" ng-model="flavor.vanilla" /><br />
+			Chocolate:   <input type="text" ng-model="flavor.chocolate" /><br />
+			Strawberry:   <input type="text" ng-model="flavor.strawberry" /><br />
+			<input type="submit" ng-click="update(user)" value="Save" />
+		</div>
 	</form>
 </div>
 
